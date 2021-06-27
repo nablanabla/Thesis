@@ -952,7 +952,8 @@ class billard_twist_horizontal:
         self.ldirection=ldirection
 
 
-def dessin(lmouv,A0,d0,ligne=3,colonne=3,N=3000,epaisseur=3,couleur='b'):
+def dessin(lmouv,A0,d0,ligne=3,colonne=3,N=3000,epaisseur=3,couleur='b',\
+    A0_visible=False,d0_visible=False):
     l,c=ligne,colonne
     lpoint=actionliste(lmouv,A0,d0)[0]
     ldirection=actionliste(lmouv,A0,d0)[1]
@@ -963,6 +964,8 @@ def dessin(lmouv,A0,d0,ligne=3,colonne=3,N=3000,epaisseur=3,couleur='b'):
     line,=ax.plot(x,y,linewidth=3,color='b',path_effects=[path_effects.SimpleLineShadow(),\
                        path_effects.Normal(offset=1)])
     grille(l,c)
+    if A0_visible==True:
+        ax.plt.scatter([A0.real], [A0.imag],c = ['lawgngreen'],s = [110],marker = 'o')
     ax.grid(False) #quadrillage
     ax.axis([-2,c+2,-2,l+2]) #on fixe les xmin,xmax,ymin,ymax
     ax.set_axis_off()
@@ -971,3 +974,4 @@ def dessin(lmouv,A0,d0,ligne=3,colonne=3,N=3000,epaisseur=3,couleur='b'):
     ax.tick_params(axis='x', colors=(0,0,0,0)) #pas de marqueur x
     ax.tick_params(axis='y', colors=(0,0,0,0)) #pas de marqueur y
     plt.show()
+
