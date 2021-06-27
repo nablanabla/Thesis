@@ -965,7 +965,7 @@ def dessin(lmouv,A0,d0,ligne=3,colonne=3,N=3000,epaisseur=3,couleur='b',\
                        path_effects.Normal(offset=1)])
     grille(l,c)
     if A0_visible==True:
-        ax.plt.scatter([A0.real], [A0.imag],c = ['lawgngreen'],s = [110],marker = 'o')
+        plt.scatter([A0.real], [A0.imag],c = ['lawgngreen'],s = [110],marker = 'o')
     ax.grid(False) #quadrillage
     ax.axis([-2,c+2,-2,l+2]) #on fixe les xmin,xmax,ymin,ymax
     ax.set_axis_off()
